@@ -172,3 +172,4 @@ time we run it - I think the requests time out or something. Are we doing someth
 their comments are blank. I'm pretty sure that was in the original spec and we tested that you can't post a blank
 comment but literally everyone has started doing it. I don't know why, lots of users were posting normal comments
 before - have they all got hacked or is it something else?"
+ - couldn't replicate this bug, i think this got solve by changing 'bbody' 

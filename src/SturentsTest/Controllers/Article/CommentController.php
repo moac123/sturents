@@ -89,7 +89,7 @@ class CommentController
             return $response->withJson(['errors' => $this->validator->getErrors()], 422);
         }
 
-        // body misspelled error
+        // body misspelled error maybe this fixes elon ticket ????
         $comment = Comment::create([
             'body'       => $data['body'],
             'user_id'    => $requestUser->id,
