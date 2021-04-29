@@ -33,7 +33,12 @@ class ProfileController
 
     public function show(Request $request, Response $response, array $args)
     {
-        $user = $this->auth->getUserByName($args['username']);
+        if (!$user = $this->auth->getUserByName($args['username'])) {
+            return $response->withJson([
+                'status' => 0,
+                'error_message' => 'profile not found'
+            ], 404);
+        }
         $profile = $user->toArray();
 
         $requestUser = $this->auth->requestUser($request);

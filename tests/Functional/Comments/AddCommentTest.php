@@ -29,8 +29,9 @@ class AddCommentTest extends BaseTestCase
             $payload,
             $headers);
 
+        // assert text was missing a stop point
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertDatabaseHas('comments', ['body' => 'His name was my name too']);
+        $this->assertDatabaseHas('comments', ['body' => 'His name was my name too.']);
         $this->assertEquals(1, $article->comments()->count());
         $this->assertEquals(1, $user->comments()->count());
     }

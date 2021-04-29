@@ -119,9 +119,7 @@ audit requirements - you told me they were. I just tried to log in with my usual
 let me sign in. So please can you check that passwords have to be case sensitive because otherwise we'll get blamed
 for it again."
 
- - I'm sure is a better way of solving this but i'm using oneOf to allow either null or valid email, that excludes empty string
-other way is by adding
-   (isset($requestParams['email']) && $requestParam !== '')
+pending
 
 ----
 
@@ -139,10 +137,16 @@ least one favourite?"
 validator issue but I thought that just stopped them editing their emails - don't think they should be able to
 set them to blank or we won't be able to do password resets"
 
+- I'm sure is a better way of solving this but i'm using oneOf to allow either null or valid email, that excludes empty string
+  other way is by adding
+  (isset($requestParams['email']) && $requestParam !== '')
+
 ----
 
 "There's a few new test fails come in since the latest commits to master; can you take a look at them, I think Jenkins
 was down so they just got accepted"
+
+ - Added an if to check if user is null and one of the asserts was missing a '.'
 
 ----
 
