@@ -42,7 +42,8 @@ class FavoriteController
      */
     public function store(Request $request, Response $response, array $args)
     {
-        $article = Article::query()->firstOrFail();
+        // missing where - is adding to favorite wrong articles
+        $article = Article::query()->where('slug', $args['slug'])->firstOrFail();
         $requestUser = $this->auth->requestUser($request);
 
         if (is_null($requestUser)) {

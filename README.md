@@ -131,6 +131,8 @@ but we've noticed something strange. There are over 1,000 favourites already on 
 have any favourites. I know that might be true but it just seems odd right - surely some other posts should get at
 least one favourite?"
 
+ - In the favorite controller i added the missing where()
+
 ----
 
 "I think we have a problem somewhere; bunch of our original users seem to have blank emails. I know we had that 
