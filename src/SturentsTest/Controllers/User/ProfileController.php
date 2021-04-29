@@ -76,7 +76,8 @@ class ProfileController
         $requestUser = $this->auth->requestUser($request);
         $user = User::query()->where('username', $args['username'])->firstOrFail();
 
-        $requestUser->un_follow($user->id);
+        // was calling wrong method
+        $requestUser->unFollow($user->id);
 
         return $response->withJson(
             [

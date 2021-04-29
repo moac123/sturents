@@ -153,6 +153,8 @@ was down so they just got accepted"
 "Hi, I followed Elon Musk but all he posts are cat videos; can you add an option to unfollow him - I press the button
 that looks like it should do that but I guess I misunderstood because it doesn't seem to do anything"
 
+ - misspell function name
+
 ----
 
 "Hi
