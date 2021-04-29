@@ -90,6 +90,7 @@ framework for most aspects, [Eloquent](https://laravel.com/docs/5.8/eloquent) fo
 with my password but the system tells me I have to be logged in to edit my article - but I am logged in? Please can
 you help as I've spotted some typos and need to fix them."
 
+ - Articles put route was missing jwtMiddleware
 ----
 
 "Sorry, this might be me doing something wrong but I noticed something odd on one of my articles. Yesterday morning there
