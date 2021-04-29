@@ -164,6 +164,8 @@ We've been working on an integration to your API to list your articles on Facebo
 We have your swagger file and are making GET requests to "/api/articles/" but it crashes the script every
 time we run it - I think the requests time out or something. Are we doing something wrong or is there a bug?"
 
+ - I couldn't find something wrong in the code so i'm guessing is because the extra '/' at the end of route it should be
+   "/api/articles"
 ----
 
 "Hey it's Elon. I think something broke in today's deploy - I still have a bunch of people commenting on my articles but
