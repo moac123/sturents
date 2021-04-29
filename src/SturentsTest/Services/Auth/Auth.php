@@ -76,7 +76,12 @@ class Auth {
         }
 
         try {
-	        password_verify($password, $user->password);
+            // wasn't cheeking what password_verify returns
+            // return false if password_verify is false
+            if (!password_verify($password, $user->password)) {
+                return false;
+            }
+
 
 	        return $user;
         }

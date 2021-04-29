@@ -119,7 +119,7 @@ audit requirements - you told me they were. I just tried to log in with my usual
 let me sign in. So please can you check that passwords have to be case sensitive because otherwise we'll get blamed
 for it again."
 
-pending
+- Added an if to check if password_verify is false
 
 ----
 
