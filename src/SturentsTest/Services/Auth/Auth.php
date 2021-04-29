@@ -2,6 +2,7 @@
 
 namespace SturentsTest\Services\Auth;
 
+use Cassandra\Exception\UnauthorizedException;
 use SturentsTest\Models\User;
 use DateTime;
 use Exception;
@@ -131,9 +132,12 @@ class Auth {
 	 * @return User|null
 	 */
 	public function requestUser(Request $request){
-		// Should add more validation to the present and validity of the token?
+		// Not sure if is the right approach but to add an extra layer of security everytime the user logs in i'm updating
+        // the token to then check in the requests if the session is valid
 		if ($token = $request->getAttribute('token')){
-			return User::where(static::SUBJECT_IDENTIFIER, '=', $token->sub)->first();
+            $secret = $this->appConfig['jwt']['secret'];
+            $currentToken = JWT::encode($token, $secret, "HS256");
+            return User::where(static::SUBJECT_IDENTIFIER, '=', $token->sub)->where('token', '=', $currentToken)->first();
 		}
 	}
 

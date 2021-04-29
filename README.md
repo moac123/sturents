@@ -112,6 +112,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjI5NDk1NjQsImV4cCI6MTU2Mjk1Njc
 
 We bill by the hour."
 
+ - Don't know if is the right approach but i'm adding an extra layer of security by storing the current session token when 
+   the user logs-in, now even if the token is valid the attacker would need the users credentials
+
 ----
 
 "Hi it's Dave in QA. I emailed you last week to ask if passwords were case sensitive because that meets our current

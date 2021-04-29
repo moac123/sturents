@@ -44,6 +44,8 @@ class UserController
 
             return $response->withJson(['user' => $data]);
         }
+
+        return $response->withJson([], 401);
     }
 
     public function update(Request $request, Response $response)
@@ -72,6 +74,8 @@ class UserController
 
             return $response->withJson(['user' => $data]);
         }
+
+        return $response->withJson([], 401);
     }
 
     /**

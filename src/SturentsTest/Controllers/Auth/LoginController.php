@@ -54,6 +54,8 @@ class LoginController
         $user = $this->auth->attempt($userParams['email'], $userParams['password']);
         if ($user) {
             $data = $this->fractal->createData(new Item($user, new UserTransformer()))->toArray();
+            // updating the current valid token
+            $user->update(['token' => $data['token']]);
 
             return $response->withJson(['user' => $data]);
         }
