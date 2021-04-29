@@ -119,6 +119,10 @@ audit requirements - you told me they were. I just tried to log in with my usual
 let me sign in. So please can you check that passwords have to be case sensitive because otherwise we'll get blamed
 for it again."
 
+ - I'm sure is a better way of solving this but i'm using oneOf to allow either null or valid email, that excludes empty string
+other way is by adding
+   (isset($requestParams['email']) && $requestParam !== '')
+
 ----
 
 "Hey well done on launching the new platform, it looks great. At the data science team we're trying to work out if 

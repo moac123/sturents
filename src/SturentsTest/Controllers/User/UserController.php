@@ -57,8 +57,10 @@ class UserController
                 return $response->withJson(['errors' => $validation->getErrors()], 422);
             }
 
+            // Added isset to avoid adding null values to email
             $user->update([
-                'email'    => $requestParams['email'],
+                //'email'    => (isset($requestParams['email']) && $requestParams['email'] !== '')? $requestParams['email'] : $user->email,
+                'email'    => isset($requestParams['email']) ? $requestParams['email'] : $user->email,
                 'username' => isset($requestParams['username']) ? $requestParams['username'] : $user->username,
                 'bio'      => isset($requestParams['bio']) ? $requestParams['bio'] : $user->bio,
                 'image'    => isset($requestParams['image']) ? $requestParams['image'] : $user->image,
@@ -79,13 +81,17 @@ class UserController
      */
     protected function validateUpdateRequest($values, $userId)
     {
+        // optional accepts null or empty strings
+        // not sure if is the most optimal way but i'm using v::oneof because acts like an or
+        // in this case the email is accepted if is null or if a valid email
         return $this->validator->validateArray($values,
             [
-                'email'    => v::optional(
+                'email'    => v::oneOf(
                     v::noWhitespace()
                         ->notEmpty()
                         ->email()
-                        ->existsWhenUpdate($this->db->table('users'), 'email', $userId)
+                        ->existsWhenUpdate($this->db->table('users'), 'email', $userId),
+                    v::nullType()
                 ),
                 'username' => v::optional(
                     v::noWhitespace()
