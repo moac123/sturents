@@ -97,6 +97,9 @@ you help as I've spotted some typos and need to fix them."
 were comments on my article but now there aren't any. I messaged one of my friends and asked if she deleted it and 
 she said she didn't so can you tell me what's happening?"
 
+ - There was a misspell in one of the array keys for the comments attributes and when deleting a comment one if was trying 
+   to do an assign operation instead of comparison (This could be the reason why some comments where deleted)
+
 ----
 
 "Dear sir
